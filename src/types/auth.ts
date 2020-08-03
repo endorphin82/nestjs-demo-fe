@@ -8,6 +8,11 @@ export interface ILogin {
     password: string;
 }
 
+export interface IForgot {
+    token: string;
+    password: string;
+}
+
 export interface ISignUp {
     firstName: string;
     lastName: string;
