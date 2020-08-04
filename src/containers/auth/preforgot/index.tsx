@@ -5,15 +5,15 @@ import './styles.scss';
 import {IRootState} from '../../../redux/reducers/state';
 import {Dispatch} from 'redux';
 import {IForgot} from '../../../types';
-import {ForgotActions} from '../../../redux/actions';
-import ForgotForm from '../../../components/auth/forgot/forgotForm';
+import PreforgotForm from "../../../components/auth/preforgot/preforgotForm";
+import {ForgotActions} from "../../../redux/actions/forgot";
 
-type IForgotContainerProps = ReturnType<typeof mapDispatchToProps>;
+type IPreForgotContainerProps = ReturnType<typeof mapDispatchToProps>;
 
-function ForgotContainer(props: IForgotContainerProps) {
+function PreForgotContainer(props: IPreForgotContainerProps) {
   return (
     <div className="login-form-container">
-      <ForgotForm handleSubmit={props.forgot} handleError={console.error}/>
+      <PreforgotForm handleSubmit={props.forgot} handleError={console.error}/>
     </div>
   )
 }
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   forgot: (payload: IForgot) => dispatch(ForgotActions.forgot(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ForgotContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(PreForgotContainer);

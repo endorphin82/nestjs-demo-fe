@@ -1,8 +1,8 @@
-import {IForgot, IUser, IAuth} from "../../types";
+import {INewpass, IUser, IAuth} from "../../types";
 
 export interface IRootState {
   router: any,
   user: IUser,
   auth: IAuth,
-  forgot: IForgot,
+  newpass: INewpass,
 }

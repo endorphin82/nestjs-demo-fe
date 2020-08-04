@@ -3,20 +3,22 @@ import {Form, Input, Button} from 'antd';
 import {LockOutlined} from '@ant-design/icons';
 
 import './styles.scss';
-import {Link, useLocation} from 'react-router-dom';
-import {IForgot} from '../../../types';
+import {Link, useHistory, useLocation} from 'react-router-dom';
+import {INewpass} from '../../../types';
+import {rootRoute} from "../../../redux/constants/auth";
 
 interface IForgotFormProps {
-  handleSubmit(values: IForgot): void,
+  handleSubmit(values: INewpass): void,
 
   handleError(error: any): void,
 }
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-export default function ForgotForm(props: IForgotFormProps) {
+export default function NewpassForm(props: IForgotFormProps) {
   // @ts-ignore
   const [form] = Form.useForm()
+  let history = useHistory();
   const query = useQuery();
   const token = query.get("token")
 
@@ -25,13 +27,14 @@ export default function ForgotForm(props: IForgotFormProps) {
     const data = {
       token: token,
       password: valuefromformlist.confirmPassword
-    } as IForgot
+    } as INewpass
     form
       .validateFields()
       .then(() => {
         props.handleSubmit(data);
         console.log(data);
         form.resetFields();
+        history.push(rootRoute)
       })
       .catch((error: any) => {
         console.log('Validate Failed:', error);

@@ -1,12 +1,14 @@
 import {put, call, select, takeLatest,} from 'redux-saga/effects';
 import {push} from 'react-router-redux';
 import {message} from 'antd';
-import {AuthActions, UserActions, ForgotActions} from '../actions';
+import {AuthActions, UserActions, NewPassActions} from '../actions';
 import {Action} from 'redux-actions';
-import {ILogin, IAuth, IUser, ISignUp, IForgot} from '../../types';
-import {signIn, signUp, forgot} from './api';
+import {ILogin, IAuth, IUser, ISignUp, INewpass, IForgot} from '../../types';
+import {signIn, signUp, newpass, forgot} from './api';
 import * as _ from 'lodash';
-import {logInRoute, signUpSuccessRoute} from "../constants/auth";
+import {newpassSuccessRoute, signUpSuccessRoute} from "../constants/auth";
+import {ForgotActions} from "../actions/forgot";
+
 
 function* SignInWorker(action: Action<ILogin>) {
   try {
@@ -31,20 +33,28 @@ function* SignUpWorker(action: Action<ISignUp>) {
   }
 }
 
-function* ForgotWorker(action: Action<IForgot>) {
+function* NewPassWorker(action: Action<INewpass>) {
   try {
-    const {data} = yield call(forgot, action.payload);
-
-    yield put(ForgotActions.forgot(data as IForgot))
-    yield put(push(logInRoute));
+    yield call(newpass, action.payload);
   } catch (error) {
-    message.error('Failed to sign up!');
+    message.error('Failed to NewPassWorker!');
     console.error(error);
   }
 }
 
+function* ForgotWorker(action: Action<IForgot>) {
+  try {
+    yield call(forgot, action.payload);
+  } catch (error) {
+    message.error('Failed to ForgotWorker!');
+    console.error(error);
+  }
+}
+
+
 export default function* watchAuth() {
   yield takeLatest(AuthActions.Type.SIGN_IN, SignInWorker);
   yield takeLatest(AuthActions.Type.SIGN_UP, SignUpWorker);
+  yield takeLatest(NewPassActions.Type.NEW_PASS, NewPassWorker);
   yield takeLatest(ForgotActions.Type.FORGOT, ForgotWorker);
 }

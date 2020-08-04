@@ -11,8 +11,9 @@ const HomePage = React.lazy(() => import('../pages/home'));
 const LoginPage = React.lazy(() => import('../pages/auth/login'));
 const SignUpPage = React.lazy(() => import('../pages/auth/signup'));
 const SignUpSuccessPage = React.lazy(() => import('../pages/auth/signUpSuccess'));
-const ForgotPage = React.lazy(() => import('../pages/auth/forgot'));
-
+const NewPassPage = React.lazy(() => import('../pages/auth/newpass'));
+const PreForgotPage = React.lazy(() => import('../pages/auth/preforgot'));
+const ForgotSuccessPage = React.lazy(() => import('../pages/auth/afterforgot'));
 
 interface IMainRouterProps extends RouteProps {
   auth: IAuth,
@@ -33,7 +34,9 @@ function MainRouter(props: IMainRouterProps) {
                   <Route exact path="/" component={LoginPage}/>
                   <Route exact path="/signup" component={SignUpPage}/>
                   <Route exact path="/signup/success" component={SignUpSuccessPage}/>
-                  <Route exact path="/auth/forgotPassword" component={ForgotPage}/>
+                  <Route exact path="/forgot/success" component={ForgotSuccessPage}/>
+                  <Route exact path="/auth/forgotPassword" component={NewPassPage}/>
+                  <Route exact path="/forgot" component={PreForgotPage}/>
                 </>
               )
           }
