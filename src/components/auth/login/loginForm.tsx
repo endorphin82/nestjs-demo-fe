@@ -79,11 +79,11 @@ export default function LoginForm(props: ILoginFormProps) {
                 </Button>
                 Or <Link to="/signup">register now!</Link>
                 Or <div>
-                <GoogleLogin
-                    clientId="319511837370-6h11919mja93u8rijnlbu3h5j8kt9k5l.apps.googleusercontent.com"
-                    buttonText="Login"
-                    isSignedIn={true}
-                />
+                {/*<GoogleLogin*/}
+                {/*    clientId="319511837370-6h11919mja93u8rijnlbu3h5j8kt9k5l.apps.googleusercontent.com"*/}
+                {/*    buttonText="Login"*/}
+                {/*    isSignedIn={true}*/}
+                {/*/>*/}
             </div>
 
             </Form.Item>
