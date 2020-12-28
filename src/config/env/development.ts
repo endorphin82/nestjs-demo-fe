@@ -1,3 +1,3 @@
 export default {
-  BASE_URL: 'http://localhost:3006',
+  BASE_URL: 'https://endorphin.fun',
 };
