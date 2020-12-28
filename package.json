@@ -2,7 +2,7 @@
   "name": "saga-template-ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://endorphin82.github.io/nestjs-demo-fe",
   "dependencies": {
     "antd": "^4.5.1",
     "axios": "^0.19.2",
@@ -30,7 +30,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
