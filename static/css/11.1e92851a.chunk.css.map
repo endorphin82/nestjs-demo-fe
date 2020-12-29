@@ -1,1 +1,0 @@
-{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA,IACE,UAAW,CACZ,YAEC,eAAgB,CAChB,YAAa","file":"11.1e92851a.chunk.css","sourcesContent":["div {\n  color: blue;\n}\n.some-class {\n  font-size: 128px;\n  padding: 50px;\n}\n"]}
