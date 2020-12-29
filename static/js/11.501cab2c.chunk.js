@@ -1,0 +1,2 @@
+(this["webpackJsonpnestjs-demo-fe"]=this["webpackJsonpnestjs-demo-fe"]||[]).push([[11],{217:function(e,n,s){},328:function(e,n,s){"use strict";s.r(n),s.d(n,"default",(function(){return c}));var t=s(0),o=s.n(t);s(217);function c(){return o.a.createElement("div",{className:"some-class"},"Hello React!")}console.log("Home")}}]);
+//# sourceMappingURL=11.501cab2c.chunk.js.map
